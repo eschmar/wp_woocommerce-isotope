@@ -1,2 +1,1 @@
-woocommerce-isotope-categories
-==============================
+# WooCommerce Category Filtering
