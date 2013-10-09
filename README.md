@@ -1,0 +1,2 @@
+woocommerce-isotope-categories
+==============================
