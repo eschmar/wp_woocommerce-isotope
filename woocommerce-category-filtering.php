@@ -11,9 +11,10 @@ License: MIT
 
 // Enqueue necessary .css and .js files
 function wooccf_scripts() {
-	//wp_enqueue_style( 'style-name', get_stylesheet_uri() );
-	wp_enqueue_script( 'masonry', plugins_url().'/woocommerce-isotope-categories/js/masonry.pkgd.min.js', array('jquery'), 'v3.1.2', true );
-	wp_enqueue_script( 'woocommerce-isotope-categories', plugins_url().'/woocommerce-isotope-categories/js/main.js', array('masonry'), '1.0', true );
+	wp_enqueue_style( 'woocommerce-category-filtering', plugins_url().'/woocommerce-isotope-categories/css/style.css');
+	wp_enqueue_script( 'masonry', plugins_url().'/woocommerce-isotope-categories/js/masonry.pkgd.min.js', array('jquery'), '3.1.2', true );
+	wp_enqueue_script( 'isotope', plugins_url().'/woocommerce-isotope-categories/js/jquery.isotope.min.js', array('jquery'), '1.5.25', true );
+	wp_enqueue_script( 'woocommerce-isotope-categories', plugins_url().'/woocommerce-isotope-categories/js/main.js', array('isotope'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'wooccf_scripts' );
 
