@@ -62,8 +62,8 @@ function wooccf_template_override( $template, $template_name, $template_path ) {
 	$path = untrailingslashit(plugin_dir_path( __FILE__ )).'/woocommerce/';
 
 	// Override template if existing
-	if ( file_exists( $plugin_path . $template_name ) ) {
-		$template = $plugin_path . $template_name;
+	if ( file_exists( $path . $template_name ) ) {
+		$template = $path . $template_name;
 	}
 
 	return $template;
