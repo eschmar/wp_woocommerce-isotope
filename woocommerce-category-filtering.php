@@ -58,7 +58,6 @@ function wooccf_cssclass() {
 
 function wooccf_template_override( $template, $template_name, $template_path ) {
 	global $woocommerce;
-
 	$path = untrailingslashit(plugin_dir_path( __FILE__ )).'/woocommerce/';
 
 	// Override template if existing
@@ -69,3 +68,44 @@ function wooccf_template_override( $template, $template_name, $template_path ) {
 	return $template;
 }
 add_filter( 'woocommerce_locate_template', 'wooccf_template_override', 10, 3 );
+
+/*
+	CHECKOUT: 
+	- http://codex.wordpress.org/Function_Reference/post_class
+	- http://wordpress.org/support/topic/woocommerce_get_template_part-calls-locate_template
+*/
+
+/*if( !function_exists( 'moveplugins_isotopes_custom_taxonomy_post_class' ) ) {
+
+	function moveplugins_isotopes_custom_taxonomy_post_class( $classes, $class, $ID ) {
+		
+		
+		if (is_tax('product_cat') || is_post_type_archive('product')){
+			$terms = get_the_terms( (int) $ID, 'product_tag' );//woocommerce tags
+	
+			if( !empty( $terms ) ) {
+				foreach( (array) $terms as $order => $term ) {
+					if( !in_array( $term->slug, $classes ) ) {
+						$classes[] = "tag-" . $term->slug;
+					}
+				}
+			}
+		}
+		
+		if (is_tax('product_tag')){
+			$terms = get_the_terms( (int) $ID, 'product_cat' );//woocommerce cat
+	
+			if( !empty( $terms ) ) {
+				foreach( (array) $terms as $order => $term ) {
+					if( !in_array( $term->slug, $classes ) ) {
+						$classes[] = "category-" . $term->slug;
+					}
+				}
+			}
+		}
+
+		return $classes;
+
+	}
+} 
+add_filter( 'post_class', 'moveplugins_isotopes_custom_taxonomy_post_class', 10, 3 );*/
