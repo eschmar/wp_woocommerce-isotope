@@ -12,7 +12,7 @@ License: MIT
 // Enqueue necessary .css and .js files
 function wooccf_scripts() {
 	wp_enqueue_style( 'woocommerce-category-filtering', plugins_url().'/woocommerce-category-filtering/css/style.css');
-	wp_enqueue_script( 'masonry', plugins_url().'/woocommerce-category-filtering/js/masonry.pkgd.min.js', array('jquery'), '3.1.2', true );
+	/*wp_enqueue_script( 'masonry', plugins_url().'/woocommerce-category-filtering/js/masonry.pkgd.min.js', array('jquery'), '3.1.2', true );*/
 	wp_enqueue_script( 'isotope', plugins_url().'/woocommerce-category-filtering/js/jquery.isotope.min.js', array('jquery'), '1.5.25', true );
 	wp_enqueue_script( 'woocommerce-category-filtering', plugins_url().'/woocommerce-category-filtering/js/main.js', array('isotope'), '1.0', true );
 }
@@ -23,11 +23,11 @@ add_action( 'wp_enqueue_scripts', 'wooccf_scripts' );
 function wooccf_render_list() {
 	$terms = get_terms('product_cat');
 	$total = 0;
-	$output = '<ul class="isotope_container">';
+	$output = '<ul class="isotope_filter">';
 	$items = '';
 
 	$item_template = function($slug, $name, $count) {
-		return "<li><a href='#' data-filter='category_$slug'>$name<span class='badge'>$count</span></a></li>";
+		return "<li><a href='#' data-filter='.category-$slug'>$name<span class='badge'>$count</span></a></li>";
 	};
 
 	foreach ($terms as $term) {
@@ -46,7 +46,7 @@ add_action( 'woocommerce_before_shop_loop', 'wooccf_render_list');
 
 // Insert category slug to every product list item: category_$slug
 function wooccf_cssclass($classes, $class, $ID) {
-	if (is_tax('product_cat')) {
+	if (is_tax('product_cat') || is_tax('product_tag') || is_post_type_archive('product')) {
 		$categories = wp_get_object_terms( $ID, 'product_cat', 'slug' );
 		foreach ($categories as $category) {
 			array_push($classes, 'category-'.$category->slug);
@@ -58,7 +58,7 @@ add_filter('post_class', 'wooccf_cssclass', 10, 3);
 
 
 // Enable template overriding from within the plugin
-function wooccf_template_override( $template, $template_name, $template_path ) {
+/*function wooccf_template_override( $template, $template_name, $template_path ) {
 	global $woocommerce;
 	$path = untrailingslashit(plugin_dir_path( __FILE__ )).'/woocommerce/';
 
@@ -69,4 +69,4 @@ function wooccf_template_override( $template, $template_name, $template_path ) {
 
 	return $template;
 }
-add_filter( 'woocommerce_locate_template', 'wooccf_template_override', 10, 3 );
+add_filter( 'woocommerce_locate_template', 'wooccf_template_override', 10, 3 );*/

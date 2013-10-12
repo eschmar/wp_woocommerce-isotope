@@ -1,17 +1,17 @@
-/*
-// Initiate Masonry
+// Cache
 var $container = jQuery('ul.products');
-$container.masonry({
+
+// Init isotope
+$container.isotope({
 	itemSelector: 'li',
-	columnWidth: 300
+	masonry: {
+	    columnWidth: 300
+	  }
 });
 
-// Masonry instance
-var msnry = $container.data('masonry');
-*/
-
-
-jQuery('ul.products').isotope({
-	itemSelector: 'li',
-	layoutMode: 'cellsByColumn'
+// Click event on filter links
+jQuery('ul.isotope_filter a').click(function(){
+  var selector = jQuery(this).attr('data-filter');
+  $container.isotope({ filter: selector });
+  return false;
 });
