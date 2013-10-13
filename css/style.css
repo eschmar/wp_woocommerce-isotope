@@ -42,3 +42,8 @@
   -o-transition-duration: 0s;
   transition-duration: 0s;
 }
+/**** hide select filter by default ****/
+
+select.isotope_select_filter {
+  display: none;
+}

@@ -26,19 +26,30 @@ function woocommerce_isotope_render_list() {
 	$output = '<ul class="isotope_filter">';
 	$items = '';
 
+	$select = '<select class="isotope_select_filter">';
+	$select_items = '';
+
 	$item_template = function($slug, $name, $count) {
 		return "<li><a href='#' data-filter='.category-$slug'>$name<span class='badge'>$count</span></a></li>";
+	};
+
+	$item_select_template = function($slug, $name, $count) {
+		return "<option value='.category-$slug'>$name ($count)</option>";
 	};
 
 	foreach ($terms as $term) {
 		$total += $term->count;
 		$items .= $item_template($term->slug, $term->name, $term->count);
+		$select_items .= $item_select_template($term->slug, $term->name, $term->count);
 	}
 
 	$output .= "<li class='active'><a href='#' data-filter='*'>Alle<span class='badge'>$total</span></a></li>";
 	$output .= $items.'</ul>';
 
-	echo $output;
+	$select .= "<option value='*'>Alle ($total)</option>";
+	$select .= $select_items.'</select>';
+
+	echo $output.$select;
 	return;
 }
 add_action( 'woocommerce_before_shop_loop', 'woocommerce_isotope_render_list');
