@@ -4,7 +4,7 @@ Introduces a new filter navigation to woocommerce and adds to both the navigatio
 
 ## Isotope
 
-As isotope isn't free for commercial use, this plugin does not include a isotope file. Please include <code>'../plugins/wp_woocommerce-isotope/js/jquery.isotope.min.js'</code>.
+As isotope isn't free for commercial use, this plugin does not include an isotope library. Please include <code>'../plugins/wp_woocommerce-isotope/js/jquery.isotope.min.js'</code>.
 
 ## Requirements
 
