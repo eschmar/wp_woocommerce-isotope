@@ -11,10 +11,10 @@ License: MIT
 
 // Enqueue necessary .css and .js files
 function woocommerce_isotope_scripts() {
-	wp_enqueue_style( 'woocommerce-isotope', plugins_url().'/woocommerce-isotope/css/style.css');
-	/*wp_enqueue_script( 'masonry', plugins_url().'/woocommerce-isotope/js/masonry.pkgd.min.js', array('jquery'), '3.1.2', true );*/
-	wp_enqueue_script( 'isotope', plugins_url().'/woocommerce-isotope/js/jquery.isotope.min.js', array('jquery'), '1.5.25', true );
-	wp_enqueue_script( 'woocommerce-isotope', plugins_url().'/woocommerce-isotope/js/main.js', array('isotope'), '1.0', true );
+	wp_enqueue_style( 'wp_woocommerce-isotope', plugins_url().'/wp_woocommerce-isotope/css/style.css');
+	/*wp_enqueue_script( 'masonry', plugins_url().'/wp_woocommerce-isotope/js/masonry.pkgd.min.js', array('jquery'), '3.1.2', true );*/
+	wp_enqueue_script( 'isotope', plugins_url().'/wp_woocommerce-isotope/js/jquery.isotope.min.js', array('jquery'), '1.5.25', true );
+	wp_enqueue_script( 'wp_woocommerce-isotope', plugins_url().'/wp_woocommerce-isotope/js/main.js', array('isotope'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'woocommerce_isotope_scripts' );
 
