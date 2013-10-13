@@ -35,7 +35,7 @@ function woocommerce_isotope_render_list() {
 		$items .= $item_template($term->slug, $term->name, $term->count);
 	}
 
-	$output .= "<li><a href='#' data-filter='*'>Alle<span class='badge'>$total</span></a></li>";
+	$output .= "<li class='active'><a href='#' data-filter='*'>Alle<span class='badge'>$total</span></a></li>";
 	$output .= $items.'</ul>';
 
 	echo $output;
