@@ -1,6 +1,6 @@
 # WooCommerce Isotope
 
-Introduces a new filter navigation to woocommerce and adds to both the navigations filter-data attribute and the products classes the corresponding category classes (category-$cat). Only displays categories with product count > 0.
+Introduces a new filter navigation to woocommerce and adds to both the navigations filter-data attribute and the products classes the corresponding category classes (category-$cat). A hidden select dropdown may be activated on mobile views (<code>ul.isotope_select_filter</code>). Only displays categories with product count > 0.
 
 ## Isotope
 
