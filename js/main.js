@@ -6,9 +6,16 @@ var $select = jQuery('select.isotope_select_filter');
 // Init isotope
 $container.isotope({
 	itemSelector: 'li',
-	masonry: {
-	    columnWidth: 300
-	  }
+	resizable: false,
+	masonry: { columnWidth: $container.width() / 5 },
+	filter: '*'
+});
+
+// update columnWidth to a percentage of container width
+jQuery(window).smartresize(function(){
+  $container.isotope({
+    masonry: { columnWidth: $container.width() / 5 }
+  });
 });
 
 // Click event on filter links
